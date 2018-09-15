@@ -24,30 +24,38 @@ import java.util.regex.Pattern;
 public class Test4 {
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("请输入一个字符串 ：");
-        String str = sc.next().trim();
-
+        String str ="    +11191657170";
         int result = myAtoi(str);
         System.out.println(result);
     }
 
     public static int myAtoi(String str) {
+        str = str.trim();
         if (str.length() < 1) {
             return 0;
         }
-        if (str.startsWith("\"")) {
-            str = str.substring(1, str.lastIndexOf("\""));
+        while (str.charAt(0) == '0') {
+            str = str.substring(1);
+            if(str.length() < 1 ||str.charAt(0) < '0' || str.charAt(0) > '9' ) {
+                return 0;
+            }
         }
+
         int lastIndex = 0;
         // 首字母如果为 - 或 +，则为负数，先把 - 提取出来
         String resultStr = "";
         if (str.charAt(0) == '-' || str.charAt(0) == '+') {
             resultStr = str.charAt(0) + "";
-            if (str.length() > 1) {
-                str = str.substring(1);
-            } else {
+            str = str.substring(1);
+            if (str.length() < 1) {
                 return 0;
+            }
+            // 再去符号后的与在第一个有效数字之前的 0
+            while (str.charAt(0) == '0') {
+                str = str.substring(1);
+                if(str.length() < 1) {
+                    return 0;
+                }
             }
 
         }
@@ -68,7 +76,7 @@ public class Test4 {
         int maxValue = (int) (Math.pow(2,31) - 1);
         int minValue = (int) -Math.pow(2,31);
         if(str.substring(0, lastIndex).length() > String.valueOf(maxValue).length()) {
-            if(!"".equals(resultStr)) {
+            if("-".equals(resultStr)) {
                 return minValue;
             } else {
                 return maxValue;
