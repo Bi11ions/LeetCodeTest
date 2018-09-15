@@ -85,13 +85,7 @@ public class Test4 {
 
         Long resultLong = Long.parseLong(resultStr + str.substring(0, lastIndex));
 
-        if(minValue > resultLong) {
-            return minValue;
-        } else if(maxValue < resultLong) {
-            return maxValue;
-        } else {
-            return resultLong.intValue();
-        }
+        return minValue > resultLong ?  minValue : maxValue < resultLong ?  maxValue :  resultLong.intValue();
     }
 
 }
