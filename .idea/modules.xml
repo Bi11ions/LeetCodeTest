@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/ArraySort/ArraySort.iml" filepath="$PROJECT_DIR$/ArraySort/ArraySort.iml" />
       <module fileurl="file://$PROJECT_DIR$/LeetCodeTest.iml" filepath="$PROJECT_DIR$/LeetCodeTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/Tencent/Tencent.iml" filepath="$PROJECT_DIR$/Tencent/Tencent.iml" />
     </modules>
